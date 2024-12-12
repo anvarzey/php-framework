@@ -21,6 +21,30 @@ class Router
     $this->routes['get'][$path] = $callback;
   }
 
+  public function post($path, $callback)
+  {
+
+    $this->routes['post'][$path] = $callback;
+  }
+
+  public function put($path, $callback)
+  {
+
+    $this->routes['put'][$path] = $callback;
+  }
+
+  public function patch($path, $callback)
+  {
+
+    $this->routes['patch'][$path] = $callback;
+  }
+
+  public function delete($path, $callback)
+  {
+
+    $this->routes['delete'][$path] = $callback;
+  }
+
   public function resolve()
   {
     $path = $this->request->getPath();
@@ -39,9 +63,9 @@ class Router
     if (is_array($callback)) {
       $controller = new $callback[0];
 
-      call_user_func([$controller, $callback[1]]);
+      call_user_func([$controller, $callback[1]], $this->request, $this->response);
     } else {
-      echo call_user_func($callback);
+      echo call_user_func($callback, $this->request, $this->response);
     }
 
     exit();

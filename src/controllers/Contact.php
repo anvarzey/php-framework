@@ -7,10 +7,8 @@ class Contact extends Controller
 
   public function index()
   {
-    $params = [
-      'name' => 'Pollito'
-    ];
-
-    $this->render('contact/index.php', $params);
+    $this->render('contact/index');
   }
+
+  public function store() {}
 }

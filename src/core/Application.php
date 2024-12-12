@@ -9,9 +9,11 @@ class Application
   public Router $router;
   public Request $request;
   public Response $response;
+  public static string $ROOT_DIR;
 
-  public function __construct()
+  public function __construct($rootPath)
   {
+    self::$ROOT_DIR = $rootPath;
     $this->request = new Request();
     $this->response = new Response();
 

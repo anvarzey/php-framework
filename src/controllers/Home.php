@@ -7,6 +7,6 @@ class Home extends Controller
 
   public function index()
   {
-    $this->render('home/index.php');
+    $this->render('home/index');
   }
 }
